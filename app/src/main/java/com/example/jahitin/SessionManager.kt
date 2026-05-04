@@ -1,0 +1,25 @@
+package com.example.jahitin
+
+import android.content.Context
+import android.content.SharedPreferences
+
+class SessionManager(context: Context) {
+    private val prefs: SharedPreferences = context.getSharedPreferences("JahitInSession", Context.MODE_PRIVATE)
+
+    companion object {
+        private const val KEY_IS_LOGIN = "isLogin"
+        private const val KEY_USERNAME = "username"
+    }
+
+    fun saveLoginSession(username: String) {
+        prefs.edit().apply {
+            putBoolean(KEY_IS_LOGIN, true)
+            putString(KEY_USERNAME, username)
+            apply()
+        }
+    }
+
+    fun isLoggedIn(): Boolean = prefs.getBoolean(KEY_IS_LOGIN, false)
+    fun getUsername(): String = prefs.getString(KEY_USERNAME, "User") ?: "User"
+    fun logout() = prefs.edit().clear().apply()
+}
