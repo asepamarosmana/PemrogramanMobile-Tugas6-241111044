@@ -6,6 +6,27 @@ import android.content.Context
 class TailorRepository(context: Context) {
     private val dbHelper = TailorDatabaseHelper(context)
 
+    // --- User Methods ---
+
+    fun registerUser(username: String, password: String): Long {
+        val db = dbHelper.writableDatabase
+        val cv = ContentValues().apply {
+            put("username", username)
+            put("password", password)
+        }
+        return db.insert("users", null, cv)
+    }
+
+    fun checkUser(username: String, password: String): Boolean {
+        val db = dbHelper.readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM users WHERE username = ? AND password = ?", arrayOf(username, password))
+        val exists = cursor.count > 0
+        cursor.close()
+        return exists
+    }
+
+    // --- Tailor Methods ---
+
     fun addTailor(tailor: Tailor) {
         val db = dbHelper.writableDatabase
         val cv = ContentValues().apply {

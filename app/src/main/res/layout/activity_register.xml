@@ -8,20 +8,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="JahitIn Login"
+        android:text="Daftar Akun JahitIn"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/etUser"
+        android:id="@+id/etRegUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nama Pengguna"
+        android:hint="Username Baru"
         android:layout_marginTop="20dp"
         android:inputType="text"/>
 
     <EditText
-        android:id="@+id/etPass"
+        android:id="@+id/etRegPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Kata Sandi"
@@ -29,17 +29,17 @@
         android:inputType="textPassword"/>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Masuk"
+        android:text="Daftar"
         android:layout_marginTop="10dp"/>
 
     <TextView
-        android:id="@+id/tvRegister"
+        android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Belum punya akun? Daftar disini"
+        android:text="Sudah punya akun? Login disini"
         android:textColor="@color/design_default_color_primary"
         android:layout_marginTop="20dp"/>
 </LinearLayout>
